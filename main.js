@@ -31,7 +31,7 @@ class Moto extends Vehiculo {
     }
 
     obtenerDetalles() {
-        return `${super.obtenerDetalles()}, Cilindrada: ${this.cilindrada}cc`;
+        return `${super.obtenerDetalles()}, Cilindrada: ${this.cilindrada}`;
     }
 }
 
@@ -42,5 +42,53 @@ const moto1 = new Moto("BMW", "2S", 2023, 600);
 console.log(coche1.obtenerDetalles());
 console.log(moto1.obtenerDetalles());
 
-//2
+// 2
 
+
+class Empleado {
+    constructor(nombre, edad, salarioBase) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.salarioBase = salarioBase;
+    }
+
+    calcularSalario() {
+        return this.salarioBase;
+    }
+}
+
+
+class Gerente extends Empleado {
+    constructor(nombre, edad, salarioBase, bonificacion) {
+        super(nombre, edad, salarioBase);
+        this.bonificacion = bonificacion;
+    }
+
+
+    calcularSalario() {
+        return this.salarioBase + this.bonificacion;
+    }
+}
+
+
+class Desarrollador extends Empleado {
+    constructor(nombre, edad, salarioBase, lenguaje) {
+        super(nombre, edad, salarioBase);
+        this.lenguaje = lenguaje;
+    }
+
+
+    calcularSalario() {
+        return this.salarioBase;
+    }
+}
+
+
+const empleado1 = new Empleado("Luisa", 30, 2000);
+const gerente1 = new Gerente("Sara", 25, 5000, 1000);
+const desarrollador1 = new Desarrollador("Arya", 19, 2500, "JavaScript");
+
+
+console.log(`Empleado: ${empleado1.nombre}, Salario: ${empleado1.calcularSalario()}$`);
+console.log(`Gerente: ${gerente1.nombre}, Salario: ${gerente1.calcularSalario()}$`);
+console.log(`Desarrollador: ${desarrollador1.nombre}, Lenguaje: ${desarrollador1.lenguaje}, Salario: ${desarrollador1.calcularSalario()}$`);
