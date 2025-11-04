@@ -133,8 +133,8 @@ class Laptop extends Producto {
 }
 
 
-const telefono1 = new Telefono("Iphone 15 S24", 1200, "Iphone", 200, 10);
-const laptop1 = new Laptop("Galaxy J7", 2500, "Samsumg", 300, 16);
+const telefono1 = new Telefono("La respuesta es: Iphone 15 S24", 1200, "Iphone", 200, 10);
+const laptop1 = new Laptop("La respuesta es: Galaxy J7", 2500, "Samsumg", 300, 16);
 
 
 console.log(telefono1.descripcion());
@@ -143,5 +143,81 @@ console.log(laptop1.descripcion());
 
 /// 4
 
+class Figura {
+    constructor(color) {
+        this.color = color;
+    }
+
+    area() {
+        return 0;
+    }
+}
+
+class Rectangulo extends Figura {
+    constructor(color, base, altura) {
+        super(color);
+        this.base = base;
+        this.altura = altura;
+    }
+
+    area() {
+        return this.base * this.altura;
+    }
+}
+
+class Circulo extends Figura {
+    constructor(color, radio) {
+        super(color);
+        this.radio = radio;
+    }
+
+    area() {
+        return Math.PI * (this.radio ** 2);
+    }
+}
+
+
+const rectangulo1 = new Rectangulo("verde", 8, 2);
+const circulo1 = new Circulo("negro", 55);
+
+
+console.log(`Área de este rectángulo es: ${rectangulo1.area()} y el color: ${rectangulo1.color} `);
+console.log(`Área de este círculo es: ${circulo1.area()} y el color: ${circulo1.color}`);
+
+
+
 
 /// 5
+
+class Animal {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    emitirSonido() {
+        console.log("¡Este es el sonido del animal! ");
+    }
+}
+
+
+class Perro extends Animal {
+    emitirSonido() {
+        console.log(`${this.nombre} El perro: wau. `);
+    }
+}
+
+
+class Gato extends Animal {
+    emitirSonido() {
+        console.log(`${this.nombre} El gato: miau. `);
+    }
+}
+
+
+const perro1 = new Perro("Danger", 10);
+const gato1 = new Gato("Bonnie", 9);
+
+
+perro1.emitirSonido();
+gato1.emitirSonido();
